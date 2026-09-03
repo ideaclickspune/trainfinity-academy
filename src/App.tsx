@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
@@ -22,10 +22,12 @@ import { NotFound } from '@/pages/NotFound';
 
 export const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
+
       <div className="flex flex-col min-h-screen selection:bg-brand-teal selection:text-white pb-16 md:pb-0">
         <Navbar />
+
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -43,12 +45,14 @@ export const App: React.FC = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
+
         <Footer />
         <FloatingMobileCTA />
         <BackToTopButton />
       </div>
+
       <Toaster position="top-right" richColors />
-    </BrowserRouter>
+    </>
   );
 };
 
